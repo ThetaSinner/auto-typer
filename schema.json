@@ -1,0 +1,30 @@
+{
+    "$id": "https://example.com/auto-typer.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "auto-typer",
+    "type": "object",
+    "required": ["version", "stages"],
+    "additionalProperties": false,
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "stages": {
+            "type": "array",
+            "description": "The person's first name.",
+            "items": {
+                "type": "object",
+                "required": ["order", "input"],
+                "additionalProperties": false,
+                "properties": {
+                    "order": {
+                        "type": "number"
+                    },
+                    "input": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

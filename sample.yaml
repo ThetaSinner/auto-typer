@@ -1,0 +1,10 @@
+version: 0.1.0
+stages:
+    - order: 1
+      input: |
+        fn main() {%(n)
+        println!("is working!\n");
+    - order: 2
+      input: |-
+        %(home)%(n)%(up)
+        println!("auto typer");
