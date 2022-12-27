@@ -1,5 +1,5 @@
 {
-    "$id": "https://example.com/auto-typer.schema.json",
+    "$id": "https://raw.githubusercontent.com/ThetaSinner/auto-typer/main/schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "auto-typer",
     "type": "object",
