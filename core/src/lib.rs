@@ -48,7 +48,7 @@ pub fn run_stage(stage: &Stage, config: &Config) {
             continue;
         }
 
-        autopilot::key::type_string(String::from(ch).as_ref(), &[], config.input_delay, 10.);
+        autopilot::key::type_string(String::from(ch).as_ref(), &[], config.wpm, 10.);
     }
 }
 

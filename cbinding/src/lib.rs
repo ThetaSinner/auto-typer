@@ -14,7 +14,7 @@ lazy_static! {
 pub struct AutoTyper {
     file: *mut c_char,
     start_delay: u8,
-    input_delay: f64,
+    wpm: f64,
     next_stage: usize,
 }
 
@@ -24,7 +24,7 @@ impl Into<Config> for &mut AutoTyper {
             Config {
                 file: PathBuf::from(CStr::from_ptr(self.file).to_str().unwrap()),
                 start_delay: self.start_delay,
-                input_delay: self.input_delay,
+                wpm: self.wpm,
             }
         }
     }
@@ -37,7 +37,7 @@ impl AutoTyper {
         AutoTyper {
             file: c_string.into_raw(),
             start_delay: 2,
-            input_delay: 250.,
+            wpm: 250.,
             next_stage: 0,
         }
     }
@@ -53,8 +53,8 @@ impl AutoTyper {
     }
 
     #[no_mangle]
-    pub extern "C" fn set_input_delay(&mut self, input_delay: f64) {
-        self.input_delay = input_delay;
+    pub extern "C" fn set_wpm(&mut self, wpm: f64) {
+        self.wpm = wpm;
     }
 
     #[no_mangle]
@@ -101,7 +101,7 @@ impl AutoTyper {
                 "self.file = {:?}, self.start_delay = {}, self.input_delay = {}",
                 CStr::from_ptr(self.file),
                 self.start_delay,
-                self.input_delay
+                self.wpm
             );
         }
     }

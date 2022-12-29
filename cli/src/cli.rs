@@ -23,7 +23,7 @@ impl Into<Config> for Cli {
         Config {
             file: self.file,
             start_delay: self.start_delay,
-            input_delay: self.input_delay,
+            wpm: self.input_delay,
         }
     }
 }
