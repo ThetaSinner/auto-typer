@@ -1,4 +1,5 @@
 use clap::Parser;
+use core::Config;
 use std::path::PathBuf;
 
 #[derive(Parser)]
@@ -15,4 +16,14 @@ pub struct Cli {
     /// Delay milliseconds between key presses
     #[arg(long, default_value_t = 250., value_name = "MS")]
     pub(crate) input_delay: f64,
+}
+
+impl Into<Config> for Cli {
+    fn into(self) -> Config {
+        Config {
+            file: self.file,
+            start_delay: self.start_delay,
+            input_delay: self.input_delay,
+        }
+    }
 }

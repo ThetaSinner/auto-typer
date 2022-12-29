@@ -1,13 +1,6 @@
-[package]
-name = "auto-typer"
-version = "0.1.0"
-edition = "2021"
-authors = ["ThetaSinner"]
-description = "A utility for automatically typing text"
-
-[dependencies]
-autopilot = "0.4.0"
-anyhow = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-serde_yaml = "0.9"
-clap = { version = "4.0.32", features = ["derive"] }
+[workspace]
+members = [
+    "core",
+    "cli",
+    "cbinding",
+]

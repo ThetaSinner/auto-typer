@@ -1,0 +1,12 @@
+[package]
+name = "auto-typer"
+version = "0.1.0"
+edition = "2021"
+authors = ["ThetaSinner"]
+description = "A utility for automatically typing text"
+
+[dependencies]
+core = { path = "../core" }
+anyhow = "1.0"
+clap = { version = "4.0.32", features = ["derive"] }
+

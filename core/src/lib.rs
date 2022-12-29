@@ -1,40 +1,23 @@
-use crate::cli::Cli;
+pub use crate::config::Config;
 use crate::model::{Input, Stage};
 use anyhow::Result;
-use autopilot::key::{KeyCode, KeyCodeConvertible};
-use clap::Parser;
+use autopilot::key::KeyCode;
 use std::fs::File;
-use std::io::{stdin, stdout, BufReader, Write};
-use std::path::PathBuf;
-use std::{thread::sleep, time::Duration};
+use std::io::BufReader;
 
-extern crate autopilot;
+pub mod config;
+pub mod model;
 
-mod cli;
-mod model;
+pub fn load_input(config: &Config) -> Result<Input> {
+    let f = File::open(&config.file)?;
 
-fn main() -> Result<()> {
-    let cli = Cli::parse();
+    let mut input: Input = serde_yaml::from_reader(BufReader::new(f))?;
+    input.stages.sort_by_key(|s| s.order);
 
-    let input = load_input(&cli.file)?;
-
-    for stage in &input.stages {
-        print!("Ready to start stage {} ", stage.order);
-        stdout().flush()?;
-
-        let mut buf = String::new();
-        stdin().read_line(&mut buf)?;
-
-        delay(&cli.start_delay)?;
-        run_stage(stage, &cli);
-    }
-
-    println!("\n\nFinished");
-
-    Ok(())
+    Ok(input)
 }
 
-fn run_stage(stage: &Stage, cli: &Cli) {
+pub fn run_stage(stage: &Stage, config: &Config) {
     let input = &stage.input;
 
     let mut input_chars = input.chars().peekable();
@@ -65,7 +48,7 @@ fn run_stage(stage: &Stage, cli: &Cli) {
             continue;
         }
 
-        autopilot::key::type_string(String::from(ch).as_ref(), &[], cli.input_delay, 10.);
+        autopilot::key::type_string(String::from(ch).as_ref(), &[], config.input_delay, 10.);
     }
 }
 
@@ -87,26 +70,4 @@ fn apply_control(control: String) {
 
 fn tap(key: KeyCode) {
     autopilot::key::tap(&autopilot::key::Code(key), &[], 0, 0);
-}
-
-fn delay(seconds: &u8) -> Result<()> {
-    print!("Starting in ");
-    for i in 0..*seconds {
-        print!("{}... ", seconds - i);
-        stdout().flush()?;
-        sleep(Duration::from_secs(1));
-    }
-
-    println!();
-
-    Ok(())
-}
-
-fn load_input(path: &PathBuf) -> Result<Input> {
-    let f = File::open(path)?;
-
-    let mut input: Input = serde_yaml::from_reader(BufReader::new(f))?;
-    input.stages.sort_by_key(|s| s.order);
-
-    Ok(input)
 }

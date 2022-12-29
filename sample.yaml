@@ -7,4 +7,4 @@ stages:
     - order: 2
       input: |-
         %(home)%(n)%(up)
-        println!("auto typer");
+        println!("auto typer ");
