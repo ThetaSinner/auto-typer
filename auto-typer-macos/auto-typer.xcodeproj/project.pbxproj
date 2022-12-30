@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED18489C295E5367002ADFDF /* auto_typerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED18489B295E5367002ADFDF /* auto_typerApp.swift */; };
+		ED18489E295E5367002ADFDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED18489D295E5367002ADFDF /* ContentView.swift */; };
+		ED1848A0295E5368002ADFDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED18489F295E5368002ADFDF /* Assets.xcassets */; };
+		ED1848A3295E5368002ADFDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1848A2295E5368002ADFDF /* Preview Assets.xcassets */; };
+		ED1848AD295E6A35002ADFDF /* LibAutoTyper in Resources */ = {isa = PBXBuildFile; fileRef = ED1848AC295E6A34002ADFDF /* LibAutoTyper */; };
+		ED1848B4295E7325002ADFDF /* libautotyper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1848B3295E7325002ADFDF /* libautotyper.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ED184898295E5367002ADFDF /* auto-typer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "auto-typer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED18489B295E5367002ADFDF /* auto_typerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auto_typerApp.swift; sourceTree = "<group>"; };
+		ED18489D295E5367002ADFDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ED18489F295E5368002ADFDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED1848A2295E5368002ADFDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ED1848A4295E5368002ADFDF /* auto_typer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = auto_typer.entitlements; sourceTree = "<group>"; };
+		ED1848AC295E6A34002ADFDF /* LibAutoTyper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LibAutoTyper; sourceTree = "<group>"; };
+		ED1848AE295E7063002ADFDF /* auto-typer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "auto-typer-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED1848B3295E7325002ADFDF /* libautotyper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libautotyper.a; path = ../target/release/libautotyper.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED184895295E5367002ADFDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED1848B4295E7325002ADFDF /* libautotyper.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED18488F295E5367002ADFDF = {
+			isa = PBXGroup;
+			children = (
+				ED1848AC295E6A34002ADFDF /* LibAutoTyper */,
+				ED18489A295E5367002ADFDF /* auto-typer */,
+				ED184899295E5367002ADFDF /* Products */,
+				ED1848AE295E7063002ADFDF /* auto-typer-Bridging-Header.h */,
+				ED1848B1295E7197002ADFDF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ED184899295E5367002ADFDF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED184898295E5367002ADFDF /* auto-typer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED18489A295E5367002ADFDF /* auto-typer */ = {
+			isa = PBXGroup;
+			children = (
+				ED18489B295E5367002ADFDF /* auto_typerApp.swift */,
+				ED18489D295E5367002ADFDF /* ContentView.swift */,
+				ED18489F295E5368002ADFDF /* Assets.xcassets */,
+				ED1848A4295E5368002ADFDF /* auto_typer.entitlements */,
+				ED1848A1295E5368002ADFDF /* Preview Content */,
+			);
+			path = "auto-typer";
+			sourceTree = "<group>";
+		};
+		ED1848A1295E5368002ADFDF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ED1848A2295E5368002ADFDF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ED1848B1295E7197002ADFDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED1848B3295E7325002ADFDF /* libautotyper.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED184897295E5367002ADFDF /* auto-typer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED1848A7295E5368002ADFDF /* Build configuration list for PBXNativeTarget "auto-typer" */;
+			buildPhases = (
+				ED184894295E5367002ADFDF /* Sources */,
+				ED184895295E5367002ADFDF /* Frameworks */,
+				ED184896295E5367002ADFDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "auto-typer";
+			productName = "auto-typer";
+			productReference = ED184898295E5367002ADFDF /* auto-typer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED184890295E5367002ADFDF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					ED184897295E5367002ADFDF = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
+				};
+			};
+			buildConfigurationList = ED184893295E5367002ADFDF /* Build configuration list for PBXProject "auto-typer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED18488F295E5367002ADFDF;
+			productRefGroup = ED184899295E5367002ADFDF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED184897295E5367002ADFDF /* auto-typer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED184896295E5367002ADFDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED1848A3295E5368002ADFDF /* Preview Assets.xcassets in Resources */,
+				ED1848AD295E6A35002ADFDF /* LibAutoTyper in Resources */,
+				ED1848A0295E5368002ADFDF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED184894295E5367002ADFDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED18489E295E5367002ADFDF /* ContentView.swift in Sources */,
+				ED18489C295E5367002ADFDF /* auto_typerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ED1848A5295E5368002ADFDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED1848A6295E5368002ADFDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		ED1848A8295E5368002ADFDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "auto-typer/auto_typer.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"auto-typer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../cbinding";
+				INFOPLIST_KEY_CFBundleDisplayName = "auto-typer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../target/release";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "thetasinner.auto-typer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/LibAutoTyper";
+				SWIFT_OBJC_BRIDGING_HEADER = "auto-typer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../cbinding";
+			};
+			name = Debug;
+		};
+		ED1848A9295E5368002ADFDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "auto-typer/auto_typer.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"auto-typer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../cbinding";
+				INFOPLIST_KEY_CFBundleDisplayName = "auto-typer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../target/release";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "thetasinner.auto-typer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/LibAutoTyper";
+				SWIFT_OBJC_BRIDGING_HEADER = "auto-typer-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../cbinding";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED184893295E5367002ADFDF /* Build configuration list for PBXProject "auto-typer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED1848A5295E5368002ADFDF /* Debug */,
+				ED1848A6295E5368002ADFDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED1848A7295E5368002ADFDF /* Build configuration list for PBXNativeTarget "auto-typer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED1848A8295E5368002ADFDF /* Debug */,
+				ED1848A9295E5368002ADFDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED184890295E5367002ADFDF /* Project object */;
+}
