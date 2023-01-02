@@ -69,6 +69,7 @@ fn apply_control(control: String) {
             "down" => tap(KeyCode::DownArrow),
             "left" => tap(KeyCode::LeftArrow),
             "right" => tap(KeyCode::RightArrow),
+            "del_back" => tap(KeyCode::Backspace),
             "select_to_start" => tap_with_modifiers(KeyCode::Home, &[Flag::Shift]),
             "select_to_end" => tap_with_modifiers(KeyCode::End, &[Flag::Shift]),
             #[cfg(target_os = "macos")]
