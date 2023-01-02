@@ -1,7 +1,11 @@
 pub use crate::config::Config;
 use crate::model::{Input, Stage};
 use anyhow::Result;
-use autopilot::key::KeyCode;
+#[cfg(not(target_os = "macos"))]
+use autopilot::key::Flag::Control;
+#[cfg(target_os = "macos")]
+use autopilot::key::Flag::Meta;
+use autopilot::key::{type_string, Flag, KeyCode};
 use std::fs::File;
 use std::io::BufReader;
 
@@ -48,7 +52,7 @@ pub fn run_stage(stage: &Stage, config: &Config) {
             continue;
         }
 
-        autopilot::key::type_string(String::from(ch).as_ref(), &[], config.wpm, 10.);
+        type_string(String::from(ch).as_ref(), &[], config.wpm, 10.);
     }
 }
 
@@ -63,11 +67,27 @@ fn apply_control(control: String) {
             "end" => tap(KeyCode::End),
             "up" => tap(KeyCode::UpArrow),
             "down" => tap(KeyCode::DownArrow),
+            "left" => tap(KeyCode::LeftArrow),
+            "right" => tap(KeyCode::RightArrow),
+            "select_to_start" => tap_with_modifiers(KeyCode::Home, &[Flag::Shift]),
+            "select_to_end" => tap_with_modifiers(KeyCode::End, &[Flag::Shift]),
+            #[cfg(target_os = "macos")]
+            "copy" => type_string("C", &[Meta], 0., 0.),
+            #[cfg(not(target_os = "macos"))]
+            "copy" => type_string("C", &[Control], 0., 0.),
+            #[cfg(target_os = "macos")]
+            "paste" => type_string("V", &[Meta], 0., 0.),
+            #[cfg(not(target_os = "macos"))]
+            "paste" => type_string("V", &[Control], 0., 0.),
             _ => panic!("invalid control - {}", control),
         };
     }
 }
 
 fn tap(key: KeyCode) {
-    autopilot::key::tap(&autopilot::key::Code(key), &[], 0, 0);
+    tap_with_modifiers(key, &[]);
+}
+
+fn tap_with_modifiers(key: KeyCode, flags: &[Flag]) {
+    autopilot::key::tap(&autopilot::key::Code(key), flags, 0, 0);
 }

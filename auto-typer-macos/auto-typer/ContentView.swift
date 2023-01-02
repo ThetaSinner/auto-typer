@@ -35,6 +35,7 @@ struct ContentView: View {
                 Text("Typing speed:")
                 Text(currentSpeed)
                 Button("slow", action: inputSpeedSlow)
+                Button("medium", action: inputSpeedMedium)
                 Button("fast", action: inputSpeedFast)
             }
             Text(stateText).padding()
@@ -111,10 +112,18 @@ struct ContentView: View {
         }
     }
     
+    func inputSpeedMedium() {
+        withUnsafeMutablePointer(to: &at) { (ptr: UnsafeMutablePointer<LibAutoTyper.AutoTyper>) -> Void in
+            self.currentSpeed = "medium"
+            LibAutoTyper.set_wpm(ptr, 400.0)
+            LibAutoTyper.print(ptr)
+        }
+    }
+    
     func inputSpeedFast() {
         withUnsafeMutablePointer(to: &at) { (ptr: UnsafeMutablePointer<LibAutoTyper.AutoTyper>) -> Void in
             self.currentSpeed = "fast"
-            LibAutoTyper.set_wpm(ptr, 400.0)
+            LibAutoTyper.set_wpm(ptr, 550.0)
             LibAutoTyper.print(ptr)
         }
     }
