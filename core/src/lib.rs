@@ -1,13 +1,11 @@
 pub use crate::config::Config;
 use crate::model::{Input, Stage};
 use anyhow::Result;
-#[cfg(not(target_os = "macos"))]
-use autopilot::key::Flag::Control;
-#[cfg(target_os = "macos")]
-use autopilot::key::Flag::Meta;
-use autopilot::key::{type_string, Flag, KeyCode};
+use autopilot::key::{type_string, Code, Flag, KeyCode};
 use std::fs::File;
 use std::io::BufReader;
+use std::thread::sleep;
+use std::time::Duration;
 
 pub mod config;
 pub mod model;
@@ -73,16 +71,19 @@ fn apply_control(control: String) {
             "select_to_start" => tap_with_modifiers(KeyCode::Home, &[Flag::Shift]),
             "select_to_end" => tap_with_modifiers(KeyCode::End, &[Flag::Shift]),
             #[cfg(target_os = "macos")]
-            "copy" => type_string("C", &[Meta], 0., 0.),
+            "copy" => type_string("c", &[Flag::Meta], 60., 0.),
             #[cfg(not(target_os = "macos"))]
-            "copy" => type_string("C", &[Control], 0., 0.),
+            "copy" => type_string("c", &[Flag::Control], 60., 0.),
             #[cfg(target_os = "macos")]
-            "paste" => type_string("V", &[Meta], 0., 0.),
+            "paste" => type_string("v", &[Flag::Meta], 60., 0.),
             #[cfg(not(target_os = "macos"))]
-            "paste" => type_string("V", &[Control], 0., 0.),
+            "paste" => type_string("v", &[Flag::Control], 60., 0.),
             _ => panic!("invalid control - {}", control),
         };
     }
+
+    // Delay after the action so that repeated actions are fast but others are visible
+    sleep(Duration::from_millis(50));
 }
 
 fn tap(key: KeyCode) {
@@ -90,5 +91,5 @@ fn tap(key: KeyCode) {
 }
 
 fn tap_with_modifiers(key: KeyCode, flags: &[Flag]) {
-    autopilot::key::tap(&autopilot::key::Code(key), flags, 0, 0);
+    autopilot::key::tap(&Code(key), flags, 0, 0);
 }
