@@ -80,10 +80,12 @@ fn apply_control(control: String) {
             "paste" => type_string("v", &[Flag::Control], 60., 0.),
             _ => panic!("invalid control - {}", control),
         };
+        // Short sleep to avoid missing key events
+        sleep(Duration::from_millis(5));
     }
 
     // Delay after the action so that repeated actions are fast but others are visible
-    sleep(Duration::from_millis(50));
+    sleep(Duration::from_millis(100));
 }
 
 fn tap(key: KeyCode) {
