@@ -8,6 +8,7 @@ typedef struct AutoTyper {
   uint8_t start_delay;
   double wpm;
   uintptr_t next_stage;
+  uintptr_t stage_count;
 } AutoTyper;
 
 struct AutoTyper create(void);
@@ -23,5 +24,9 @@ void configure(struct AutoTyper *self);
 bool has_next(struct AutoTyper *self);
 
 void next(struct AutoTyper *self);
+
+void skip(struct AutoTyper *self);
+
+void previous(struct AutoTyper *self);
 
 void print(const struct AutoTyper *self);

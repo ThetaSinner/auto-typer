@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var at = LibAutoTyper.create()
     @State var currentFile = "Select a file"
     @State var stateText = "not started"
+    @State var positionText = "not started"
     @State var currentSpeed = "default"
     @State var initialised = false
     
@@ -40,6 +41,11 @@ struct ContentView: View {
             }
             Text(stateText).padding()
             Button("start", action: start)
+            HStack {
+                Text(positionText)
+                Button("previous", action: previous)
+                Button("skip", action: skip)
+            }
             Text("Listening for Cmd+Option+F8")
         }
     }
@@ -64,6 +70,8 @@ struct ContentView: View {
                     }
                 }
             }
+            
+            setPositionText()
         }
     }
     
@@ -75,8 +83,31 @@ struct ContentView: View {
         
         withUnsafeMutablePointer(to: &at) { (ptr: UnsafeMutablePointer<LibAutoTyper.AutoTyper>) -> Void in
             LibAutoTyper.configure(ptr)
+            
             self.stateText = "configured"
         }
+        
+        setPositionText()
+    }
+    
+    func previous() {
+        withUnsafeMutablePointer(to: &at) { (ptr: UnsafeMutablePointer<LibAutoTyper.AutoTyper>) -> Void in
+            LibAutoTyper.previous(ptr)
+        }
+        
+        setPositionText()
+    }
+    
+    func skip() {
+        withUnsafeMutablePointer(to: &at) { (ptr: UnsafeMutablePointer<LibAutoTyper.AutoTyper>) -> Void in
+            LibAutoTyper.skip(ptr)
+        }
+        
+        setPositionText()
+    }
+    
+    func setPositionText() {
+        positionText = String(format: "next step is %d / %d", at.next_stage + 1, at.stage_count)
     }
     
     func pickFile() {

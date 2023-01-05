@@ -16,6 +16,7 @@ pub struct AutoTyper {
     start_delay: u8,
     wpm: f64,
     next_stage: usize,
+    stage_count: usize,
 }
 
 impl Into<Config> for &mut AutoTyper {
@@ -39,6 +40,7 @@ impl AutoTyper {
             start_delay: 2,
             wpm: 250.,
             next_stage: 0,
+            stage_count: 0,
         }
     }
 
@@ -62,10 +64,10 @@ impl AutoTyper {
         let config: Config = self.into();
         let input = core::load_input(&config);
         if let Ok(input) = input {
+            self.next_stage = 0;
+            self.stage_count = input.stages.len();
             let mut input_value = INPUT.lock().unwrap();
             *input_value = Some(input);
-            self.next_stage = 0;
-            println!("configure successful")
         }
     }
 
@@ -91,6 +93,20 @@ impl AutoTyper {
                 &config,
             );
             self.next_stage += 1;
+        }
+    }
+
+    #[no_mangle]
+    pub extern "C" fn skip(&mut self) {
+        if self.next_stage + 1 < self.stage_count {
+            self.next_stage += 1;
+        }
+    }
+
+    #[no_mangle]
+    pub extern "C" fn previous(&mut self) {
+        if self.next_stage > 0 {
+            self.next_stage -= 1;
         }
     }
 
